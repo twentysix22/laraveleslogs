@@ -1,0 +1,44 @@
+{
+    "name": "twentysix22/laraveleslogs",
+    "description": "Elasticsearch structured logging for Laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matt Stowe",
+            "email": "matt@twentysix22.com",
+            "homepage": "https://www.twentysix22.com"
+        }
+    ],
+    "homepage": "https://github.com/twentysix22/laraveleslogs",
+    "keywords": ["Laravel", "LaravelESLogs"],
+    "require": {
+        "ext-json": "*",
+        "illuminate/support": "~5|~6|~7",
+        "elasticsearch/elasticsearch": "^7.8",
+        "ramsey/uuid": "^4.1",
+        "laravel/helpers": "^1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twentysix22\\LaravelESLogs\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Twentysix22\\LaravelESLogs\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Twentysix22\\LaravelESLogs\\LaravelESLogsServiceProvider"
+            ]
+        }
+    }
+}
