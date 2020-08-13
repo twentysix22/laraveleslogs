@@ -42,6 +42,9 @@ LOG_JOBS=true
 LOG_JOB_ATTEMPTS=true
 LOG_REQUESTS=true
 LOG_REDACTION_INK=REDACTED
+LOG_ELASTICSEARCH_AUTH_TYPE=url   [url or apikey]
+LOG_ELASTICSEARCH_AUTH_API_ID=
+LOG_ELASTICSEARCH_AUTH_API_KEY=
 ```
 Add the service provider to your providers array in config/app.php
 ``` bash
