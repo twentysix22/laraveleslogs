@@ -68,7 +68,7 @@ class Configure extends Command
                 'mappings' => [
                     '_doc' => [
                         // Ignore fields that aren't explicitly specified in this schema
-                        'dynamic' => false,
+                        'dynamic' => true,
                         'properties' => [
                             'id' => [
                                 'type' => 'text',
@@ -95,6 +95,12 @@ class Configure extends Command
                                 ],
                             ],
                             'env' => [
+                                'type' => 'text',
+                                'fields' => [
+                                    'keyword' => ['type' => 'keyword'],
+                                ],
+                            ],
+                            'group' => [
                                 'type' => 'text',
                                 'fields' => [
                                     'keyword' => ['type' => 'keyword'],

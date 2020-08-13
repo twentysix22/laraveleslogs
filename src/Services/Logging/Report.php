@@ -80,8 +80,9 @@ abstract class Report implements Arrayable
     public function getAppData(): array
     {
         return [
-            'host'        => gethostname(),
-            'env'       => config('app.env'),
+            'host'  => gethostname(),
+            'env'   => config('app.env'),
+            'group' => config('laraveleslogs.log_group'),
         ];
     }
 

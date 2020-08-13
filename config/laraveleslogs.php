@@ -20,6 +20,9 @@ return [
         'keep_days' => env('LOG_ELASTICSEARCH_KEEP_DAYS'),
     ],
 
+    // Log group - default as app env, but can be set to be specific in the logs.
+    'log_group' => env('LOG_GROUP', config('app.env')),
+
     // Keys used to catch elements in logging array keys - will be replaced with redaction ink
     // and not displayed in logs.
     'redaction' => [
