@@ -67,7 +67,6 @@ class Configure extends Command
                 ],
                 'mappings' => [
                     '_doc' => [
-                        // Ignore fields that aren't explicitly specified in this schema
                         'dynamic' => true,
                         'properties' => [
                             'id' => [
