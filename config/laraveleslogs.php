@@ -14,6 +14,13 @@ return [
         'hosts' => [
             env('LOG_ELASTICSEARCH_HOST'),
         ],
+
+        // Auth type - (url | apikey) - url can include user/pass - eg 'http://user:pass@localhost:9200'
+        'auth_type' => env('LOG_ELASTICSEARCH_AUTH_TYPE', 'url'),
+        'auth_api_id' => env('LOG_ELASTICSEARCH_AUTH_API_ID', null),
+        'auth_api_key' => env('LOG_ELASTICSEARCH_AUTH_API_KEY', null),
+
+        // Prefix of index pattern.
         'prefix' => config('app.env').'_',
 
         //Log retention number of days (required artisan laraveleslogs:tidy command to run daily)

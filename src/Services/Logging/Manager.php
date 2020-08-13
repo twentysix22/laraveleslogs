@@ -28,10 +28,25 @@ class Manager
      */
     public function __construct()
     {
-        $client = Elasticsearch\ClientBuilder::create()
-            ->setHosts(config('laraveleslogs.elasticsearch.hosts'))
-            ->build();
-        $this->client = $client;
+
+        $type = config('laraveleslogs.elasticsearch.auth_type');
+        if ($type == 'url') {
+            $client = Elasticsearch\ClientBuilder::create()
+                ->setHosts(config('laraveleslogs.elasticsearch.hosts'))
+                ->build();
+            $this->client = $client;
+        }
+
+        if ($type == 'apikey') {
+            $id = config('laraveleslogs.elasticsearch.auth_api_id');
+            $key = config('laraveleslogs.elasticsearch.auth_api_key');
+            $client = Elasticsearch\ClientBuilder::create()
+                ->setHosts(config('laraveleslogs.elasticsearch.hosts'))
+                ->setApiKey($id, $key)
+                ->build();
+            $this->client = $client;
+        }
+
     }
 
     /**
