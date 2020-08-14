@@ -83,6 +83,7 @@ abstract class Report implements Arrayable
             'host'  => gethostname(),
             'env'   => config('app.env'),
             'group' => config('laraveleslogs.log_group'),
+            'app_name' => config('app.name'),
         ];
     }
 

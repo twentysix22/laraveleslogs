@@ -105,6 +105,12 @@ class Configure extends Command
                                     'keyword' => ['type' => 'keyword'],
                                 ],
                             ],
+                            'app_name' => [
+                                'type' => 'text',
+                                'fields' => [
+                                    'keyword' => ['type' => 'keyword'],
+                                ],
+                            ],
                             'queue' => [
                                 'type' => 'text',
                                 'fields' => [
