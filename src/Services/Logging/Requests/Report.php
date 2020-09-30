@@ -2,6 +2,7 @@
 
 namespace Twentysix22\LaravelESLogs\Services\Logging\Requests;
 
+use Illuminate\Support\Str;
 use Twentysix22\LaravelESLogs\Services\Logging\LoggingRedactor;
 use Twentysix22\LaravelESLogs\Services\Logging\Report as AbstractReport;
 use Twentysix22\LaravelESLogs\Services\Logging\TracksDuration;
@@ -155,6 +156,8 @@ class Report extends AbstractReport
         }
 
         $requestContent = LoggingRedactor::redactJson($request->getContent());
+        //limit request log length
+        $requestContent = Str::limit($requestContent, config('laraveleslogs.max_request'), '...TRUNCATED');
         $requestHeaders = LoggingRedactor::redactHeaderBag($request->headers);
 
         return
@@ -176,6 +179,8 @@ class Report extends AbstractReport
         $statusText = Response::$statusTexts[$statusCode] ?? 'Unknown';
 
         $responseContent = LoggingRedactor::redactJson($response->getContent());
+        //limit response log length.
+        $responseContent = Str::limit($responseContent, config('laraveleslogs.max_response'), '...TRUNCATED');
         $responseHeaders = LoggingRedactor::redactHeaderBag($response->headers);
 
         return sprintf('HTTP/%s %s %s', $response->getProtocolVersion(), $statusCode, $statusText).PHP_EOL.

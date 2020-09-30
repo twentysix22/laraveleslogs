@@ -44,4 +44,8 @@ return [
 
     // The ink used to redact sensitive keys in logs.
     'redaction_ink' => config('LOG_REDACTION_INK', '[--REDACTED--]'),
+
+    // size of request and response logging (characters) - larger will be truncated in logs.
+    'max_request' => env('LOG_REQUEST_MAX_SIZE', 200000),
+    'max_response' => env('LOG_RESPONSE_MAX_SIZE', 200000),
 ];
