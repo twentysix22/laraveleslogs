@@ -2,8 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 Structured logging for Laravel into Elasticsearch.  Log your Requests and Jobs easily alongside key contextual information to elastic search indexes for easy searching and analysis.
 
@@ -55,6 +53,7 @@ Add the service provider to your providers array in config/app.php
 
 
 ## Initialise the Elasticsearch indices.
+This step is not strictly necessary unless you wish to reset any current indices.
 ``` bash 
 php artisan laraveleslogs:configure
 ```
