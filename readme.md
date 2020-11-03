@@ -45,6 +45,8 @@ LOG_REDACTION_INK=REDACTED
 LOG_ELASTICSEARCH_AUTH_TYPE=url   [url or apikey]
 LOG_ELASTICSEARCH_AUTH_API_ID=
 LOG_ELASTICSEARCH_AUTH_API_KEY=
+LOG_REQUEST_MAX_SIZE= (size in characters)
+LOG_RESPONSE_MAX_SIZE= (size in characters)
 ```
 Add the service provider to your providers array in config/app.php
 ``` bash

@@ -71,6 +71,7 @@ class Report extends AbstractReport
     {
         $path = $this->request->decodedPath();
         $name = $this->name ?? $path;
+        $user = $this->request->user();
 
         /**
          * @var \Illuminate\Routing\Route
@@ -85,7 +86,7 @@ class Report extends AbstractReport
             + [
                 'created_at'        => $this->formatDateTime($this->getCreatedAt()),
                 'display_name'      => $name,
-                'user'              => $this->formatUser($this->request->user()),
+                'user'              => $user->id,
                 'ip'                => $this->request->ip(),
                 'status'            => $this->response->getStatusCode(),
                 'method'            => $this->request->method(),
