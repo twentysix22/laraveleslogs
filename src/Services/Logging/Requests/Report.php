@@ -71,7 +71,7 @@ class Report extends AbstractReport
     {
         $path = $this->request->decodedPath();
         $name = $this->name ?? $path;
-        $user = $this->request->user();
+        $user_id = $this->request->user() ? $this->request->user()->id : null;
 
         /**
          * @var \Illuminate\Routing\Route
@@ -86,7 +86,7 @@ class Report extends AbstractReport
             + [
                 'created_at'        => $this->formatDateTime($this->getCreatedAt()),
                 'display_name'      => $name,
-                'user'              => $user->id,
+                'user'              => $user_id,
                 'ip'                => $this->request->ip(),
                 'status'            => $this->response->getStatusCode(),
                 'method'            => $this->request->method(),
@@ -217,21 +217,5 @@ class Report extends AbstractReport
         return array_map(function (array $headers) {
             return implode('; ', $headers);
         }, $headers);
-    }
-
-    /**
-     * @param User|null $user
-     * @return array
-     */
-    protected function formatUser(?User $user): array
-    {
-        if ($user) {
-            return [
-                'id' => $user->id,
-                'name' => $user->name,
-            ];
-        }
-
-        return [];
     }
 }
