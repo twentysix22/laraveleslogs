@@ -3,6 +3,7 @@
 namespace Twentysix22\LaravelESLogs\Services\Logging;
 
 use Exception;
+use Throwable;
 
 trait TracksSuccess
 {
@@ -42,10 +43,10 @@ trait TracksSuccess
     /**
      * Set the exception.
      *
-     * @param Exception|null $exception
+     * @param Throwable|null $exception
      * @return $this
      */
-    public function setException(?Exception $exception = null)
+    public function setException(?Throwable $exception = null)
     {
         $this->exception = $exception;
 
@@ -79,10 +80,10 @@ trait TracksSuccess
     /**
      * Format a given exception as an array.
      *
-     * @param Exception $exception
+     * @param Throwable $exception
      * @return array
      */
-    protected function formatException(Exception $exception): array
+    protected function formatException(Throwable $exception): array
     {
         return [
             'class'   => get_class($exception),
