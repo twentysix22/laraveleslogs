@@ -27,6 +27,10 @@ class LogRequest
             return $next($request);
         }
 
+        // Create a variable to hold the response to prevent
+        // it from being lost on exceptions
+        $response = null;
+
         try {
             /**
              * @var Manager
@@ -53,11 +57,12 @@ class LogRequest
                 ->setResponse($response);
 
             $manager->submitReport();
-
-            return $response;
         } catch (Throwable $e) {
             // Ensure exceptions caused by logging don't disrupt requests
             report($e);
+        } finally {
+            // Return response in both cases
+            return $response;
         }
     }
 }
