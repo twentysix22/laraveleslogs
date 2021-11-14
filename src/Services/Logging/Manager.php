@@ -143,7 +143,7 @@ class Manager
             '%sreports-%s-%s',
             config('laraveleslogs.elasticsearch.prefix'),
             $report->getCollection(),
-            Carbon::today()->format('Y.m.d')
+            Carbon::today()->format(config('laraveleslogs.elasticsearch.index_date_pattern'))
         );
     }
 
