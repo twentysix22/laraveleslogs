@@ -45,6 +45,7 @@ LOG_ELASTICSEARCH_AUTH_API_ID=
 LOG_ELASTICSEARCH_AUTH_API_KEY=
 LOG_REQUEST_MAX_SIZE= (size in characters)
 LOG_RESPONSE_MAX_SIZE= (size in characters)
+LOG_ELASTICSEARCH_INDEX_DATE_PATTERN="Y.m.d"
 ```
 Add the service provider to your providers array in config/app.php
 ``` bash
