@@ -23,6 +23,9 @@ return [
         // Prefix of index pattern.
         'prefix' => config('app.env').'_',
 
+        // Configurable date format for index pattern
+        'index_date_pattern' => env('LOG_ELASTICSEARCH_INDEX_DATE_PATTERN','Y.m.d'),
+
         //Log retention number of days (required artisan laraveleslogs:tidy command to run daily)
         'keep_days' => env('LOG_ELASTICSEARCH_KEEP_DAYS'),
     ],
